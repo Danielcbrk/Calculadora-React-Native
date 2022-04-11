@@ -52,6 +52,8 @@ export default function App() {
         calculator()
         return
       case '+/-':
+        setCurrentNumber(currentNumber * -1)
+        
         return
     }
 
@@ -73,12 +75,12 @@ export default function App() {
 
         {buttons.map((button) => 
           button === '=' ? // Mapeamento do botão =
-        <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[styles.button, {backgroundColor: '#3dd0e3'}]}>
+        <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[styles.button, {backgroundColor: '#4B0082'}]}>
           <Text style={[styles.textButton, {color: "white", fontSize: 30}]}>{button}</Text>
         </TouchableOpacity>
           : // Mapeamento dos outros botões
           <TouchableOpacity onPress={() => handleInput(button)} key={button} style={styles.button}>
-            <Text style={[styles.textButton, {color: typeof(button) === 'number' ? 'black': '#0093a6'}]}>{button}</Text>
+            <Text style={[styles.textButton, {color: typeof(button) === 'number' ? 'white': '#A9A9A9'}]}>{button}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -94,10 +96,10 @@ const styles = StyleSheet.create({
   results: {
     flex: 2,
     justifyContent: "center",
-    backgroundColor: "#f5f5f5"
+    backgroundColor: "#4B0082"
   },
   resultText: {
-    color: "#282F38",
+    color: "white",
     fontSize: 32,
     fontWeight: "bold",
     padding: 12,
@@ -111,18 +113,20 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
+  
+  //fundo dos botoes 
   button: {
-    backgroundColor: 'white',
+    backgroundColor: '#720e9e',
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: 90, 
     minHeight: 90,
-    flex: 2,
+    flex: 2
   },
   textButton: {
     color: "#7c7c7c",
-    fontSize: 20,
+    fontSize: 20
   } 
 });
